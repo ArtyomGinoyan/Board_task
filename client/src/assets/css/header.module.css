@@ -1,0 +1,16 @@
+.container {
+  width: 95%;
+  height: 100px;
+  display: flex;
+  background-color: #f4f5f7;
+}
+.inputContainer {
+  min-width: 15%;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-self: center;
+  padding: 5px;
+}
