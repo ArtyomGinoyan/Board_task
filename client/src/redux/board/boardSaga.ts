@@ -1,19 +1,21 @@
 import { call, put } from "redux-saga/effects";
-import { el } from "../../pages/board/Board";
 import addCardService from "../../services/addCardService";
-import addColumnService from "../../services/addColumnService";
 import getDataService from "../../services/getDataService";
 import moveCardService from "../../services/moveCardService";
+import addColumnService from "../../services/addColumnService";
 import updateColumnNameService from "../../services/updateColumnNameService";
-import { Card, FullCardData, MovedData } from "../../types/cardTypes";
+import { el } from "../../pages/board/Board";
 import { Column, ColumnData } from "../../types/columnTypes";
+import { Card, FullCardData, MovedData, RemoveCard } from "../../types/cardTypes";
 import {
   addCard,
   addColumn,
   getDataSuccess,
   moveCard,
+  removeCard,
   updateColumnName,
 } from "./boardSlice";
+import removeCardService from "../../services/removedCardService";
 
 export interface Data {
   type: string;
@@ -23,6 +25,10 @@ export interface Data {
 export interface CardData {
   type: string;
   payload: Card;
+}
+export interface RemovedData {
+    type: string;
+    payload: FullCardData;
 }
 
 export function* handleMoveCard(data: Data) {
@@ -39,6 +45,21 @@ export function* handleMoveCard(data: Data) {
     console.log(error);
   }
 }
+
+export function* handleRemoveCard(data: RemovedData) {
+    try {
+      console.log(data);
+      yield put(removeCard(data.payload));
+      yield call(removeCardService, {
+        id: data.payload.id,
+        columnId: data.payload.columnId,
+        position: data.payload.position,
+        userId: data.payload.userId
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 export function* handleData() {
   try {
@@ -77,6 +98,8 @@ export function* handleAddColumn(data: ColumnData) {
       throw new Error("Column create failed");
     }
     const column: Column = yield response.json() as Promise<Column>;
+    console.log(column);
+
     column.cards = [];
     yield put(addColumn(column));
     console.log(column);

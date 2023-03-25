@@ -1,6 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import { el } from "../../pages/board/Board";
-// import { data } from "../../mockdata";
 
 const initialState = {
   column: [] as el[],
@@ -16,7 +15,6 @@ const boardSlice = createSlice({
     },
     addCardAction(state, action) {},
     addCard(state, action) {
-      // state.push(action.payload);
       const sourceCards = state.column.filter(
         (column) => column.id === action.payload.columnId,
       );
@@ -33,7 +31,18 @@ const boardSlice = createSlice({
       );
       column[0].title = action.payload.title;
     },
+    removeCardAction(state, action) {},
     removeCard(state, action) {
+      const { columnId, position } = action.payload;
+      const sourceCards = state.column.filter(
+        (column) => column.id === +columnId,
+      );
+      sourceCards[0].cards.splice(position, 1);
+      sourceCards[0].cards.forEach((el) => {
+        if (el.position > position) {
+          el.position = el.position - 1;
+        }
+      });
       // const cardIndex = state.findIndex(
       //   (card) => card.id === action.payload
       // );
@@ -95,5 +104,7 @@ export const {
   addColumnAction,
   updateColumnName,
   updateColumnNameAction,
+  removeCard,
+  removeCardAction,
 } = boardSlice.actions;
 export default boardSlice;

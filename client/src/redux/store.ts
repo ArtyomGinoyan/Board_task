@@ -1,8 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
+import { configureStore } from "@reduxjs/toolkit";
+
+import saga from "./saga";
 import authSlice from "./auth/authSlice";
 import boardSlice from "./board/boardSlice";
-import saga from "./saga";
 
 const sagaMiddleware = createSagaMiddleware();
 
