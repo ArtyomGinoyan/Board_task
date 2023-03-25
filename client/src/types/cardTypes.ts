@@ -7,6 +7,12 @@ export interface FullCardData {
   userId: number;
 }
 
+export interface RemoveCard {
+    id: number;
+    position: number;
+    columnId: number;
+    userId: number
+}
 export interface Card {
   columnId: number;
   userId: number;

@@ -5,9 +5,10 @@ import More from "./More";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-import authStyles from "./authStyles.module.css";
-import { loginAction } from "../../redux/auth/authSlice";
 import { authState } from "../../types/authTypes";
+import { loginAction } from "../../redux/auth/authSlice";
+
+import authStyles from "./authStyles.module.css";
 
 const Login: FC = () => {
   const dispatch = useDispatch();

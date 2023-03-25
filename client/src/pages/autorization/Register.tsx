@@ -5,9 +5,10 @@ import More from "./More";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-import authStyles from "./authStyles.module.css";
 import { authState } from "../../types/authTypes";
 import { signUp } from "../../services/authService";
+
+import authStyles from "./authStyles.module.css";
 
 const Register: FC = () => {
   const navigate = useNavigate();

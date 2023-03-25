@@ -1,16 +1,16 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Login from "./pages/autorization/Login";
-import Register from "./pages/autorization/Register";
+import Board from "./pages/board/Board";
+import NotFound from "./pages/notfound/NotFound";
 import AuthLayout from "./layouts/AuthLayout";
 import PublicLayout from "./layouts/PublicLayout";
-import { Board } from "./pages/board/Board";
-import NotFound from "./pages/notfound/NotFound";
+import Login from "./pages/autorization/Login";
+import Register from "./pages/autorization/Register";
+
+import appStyles from "./app.module.css";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className={appStyles.App}>
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/login" element={<Login />} />
