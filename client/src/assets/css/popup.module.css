@@ -1,0 +1,11 @@
+div.container {
+  display: flex;
+  position: absolute;
+  /* top: 30vh;
+  left: 30vw; */
+  width: 500px;
+  height: 550px;
+  background-color: #2f497d;
+  border-radius: 6px;
+  z-index: 88888888888;
+}
