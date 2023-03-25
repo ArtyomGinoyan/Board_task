@@ -1,13 +1,15 @@
 import { FC, useRef, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import Input from "./Input";
 import Buttons from "./Buttons";
+
 import { useOutsideClick } from "../hooks/useOutsideClick";
 
-import columnStyles from "../assets/css/column.module.css";
-import { useSelector } from "react-redux";
 import { userSelector } from "../redux/auth/authSelector";
-import { useDispatch } from "react-redux";
 import { addCardAction } from "../redux/board/boardSlice";
+
+import columnStyles from "../assets/css/column.module.css";
 
 export interface IAppProps {
   id: number;

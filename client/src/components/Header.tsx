@@ -1,10 +1,14 @@
 import { FC, useRef } from "react";
 import { useDispatch } from "react-redux";
+
+import Input from "./Input";
+import Buttons from "./Buttons";
+
+import { addColumnAction } from "../redux/board/boardSlice";
+
 import columnStyles from "../assets/css/column.module.css";
 import headerStyles from "../assets/css/header.module.css";
-import { addColumnAction } from "../redux/board/boardSlice";
-import Buttons from "./Buttons";
-import Input from "./Input";
+
 export interface IAppProps {}
 
 const Header: FC<IAppProps> = (props) => {
@@ -24,6 +28,7 @@ const Header: FC<IAppProps> = (props) => {
       <div className={headerStyles.inputContainer}>
         <Input
           inputRef={inputRef}
+          placeholder="Create New Column"
           className={columnStyles.headerInput}
           classContainer={columnStyles.headerInputWrap}
         />

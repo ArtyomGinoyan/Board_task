@@ -1,18 +1,23 @@
 import { FC } from "react";
+
+import { StrictModeDroppable } from "../helpers/StrictModeDroppable";
+
 import Card from "./Card";
 import CreateCard from "./CreateCard";
 import ColumnHeader from "./ColumnHeader";
-import { StrictModeDroppable } from "../helpers/StrictModeDroppable";
-// import { v4 as uuidv4 } from 'uuid';
 
+import { FullCardData } from "../types/cardTypes";
 import { FullBoardData } from "../types/boardTypes";
 
 import columnStyles from "../assets/css/column.module.css";
+
 export interface IColumnProps {
   el: FullBoardData;
+  openModal: (data: FullCardData) => void;
 }
 
 const Column: FC<IColumnProps> = (props) => {
+  const { el } = props;
   return (
     <div className={columnStyles.container}>
       <StrictModeDroppable
@@ -22,18 +27,24 @@ const Column: FC<IColumnProps> = (props) => {
             {...provided.droppableProps}
             className={columnStyles.wraper}>
             <ColumnHeader
-              id={props.el.id}
-              title={props.el.title}
-              cardsLlength={props.el.cards.length}
+              id={el.id}
+              title={el.title}
+              cardsLength={el.cards.length}
             />
-            {props.el.cards.map((el, i) => {
-              return <Card el={el} key={el.content + el.id} />;
+            {el.cards.map((el, i) => {
+              return (
+                <Card
+                  el={el}
+                  key={el.content + el.id}
+                  openModal={props.openModal}
+                />
+              );
             })}
-            <CreateCard id={props.el.id} cardsLlength={props.el.cards.length} />
+            <CreateCard id={el.id} cardsLlength={el.cards.length} />
             {provided.placeholder}
           </div>
         )}
-        droppableId={`${props.el.id}`}
+        droppableId={`${el.id}`}
       />
     </div>
   );

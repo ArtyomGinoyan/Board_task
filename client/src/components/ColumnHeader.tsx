@@ -1,19 +1,19 @@
 import { FC, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import Input from "./Input";
 import Buttons from "./Buttons";
 
-import deleteButton from "../assets/images/delete.svg";
-
-import columnStyles from "../assets/css/column.module.css";
 import { useOutsideClick } from "../hooks/useOutsideClick";
-import { useDispatch } from "react-redux";
 import { updateColumnNameAction } from "../redux/board/boardSlice";
+
+import deleteButton from "../assets/images/delete.svg";
+import columnStyles from "../assets/css/column.module.css";
 
 interface IAppProps {
   id: number;
   title: string;
-  cardsLlength: number;
+  cardsLength: number;
 }
 
 const ColumnHeader: FC<IAppProps> = (props) => {
@@ -33,6 +33,7 @@ const ColumnHeader: FC<IAppProps> = (props) => {
       }),
     );
   };
+  const { id, title, cardsLength } = props;
   return (
     <div className={columnStyles.header} ref={wrapperRef}>
       {!visible && (
@@ -42,11 +43,9 @@ const ColumnHeader: FC<IAppProps> = (props) => {
               setVisible(true);
             }}
             className={columnStyles.columnName}>
-            <h3>{props.title}</h3>
+            <h3>{title}</h3>
           </div>
-          <div className={columnStyles.cardsCount}>
-            {props.cardsLlength} cards
-          </div>
+          <div className={columnStyles.cardsCount}>{cardsLength} cards</div>
           <div className={columnStyles.deleteColumn}>
             <img src={deleteButton} alt="delete" title="delete column" />
           </div>
@@ -57,14 +56,14 @@ const ColumnHeader: FC<IAppProps> = (props) => {
           <Input
             autoFocus={true}
             inputRef={inputRef}
-            defaultValue={props.title}
+            defaultValue={title}
             className={columnStyles.headerInput}
             classContainer={columnStyles.headerInputWrap}
           />
           <Buttons
             setVisible={setVisible}
             getValue={changeColumnName}
-            id={props.id}
+            id={id}
           />
         </>
       )}
