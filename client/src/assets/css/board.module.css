@@ -1,19 +1,20 @@
 .container {
-    width: 100vw;
-    height:calc(100vh - 100px) ;
+    width: 95%;
+    max-height:calc(100% - 150px) ;
     /* min-height: 100vh; */
     /* max-height: 2000px; */
-    display: flex;
+    /* display: flex; */
     /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    overflow: auto;
 }
 .wrap {
-    width: 95%;
-    height: 90%;
+    width: 100%;
+    min-height: 21%;
     display: flex;
     gap: 10px;
-    overflow: auto;
+    /* overflow: auto; */
     position: relative;
 }
 /* .addColumn {
