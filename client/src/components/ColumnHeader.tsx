@@ -1,74 +1,75 @@
-import { FC, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { FC, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 
-import Input from "./Input";
-import Buttons from "./Buttons";
+import Input from './Input';
+import Buttons from './Buttons/Buttons';
 
-import { useOutsideClick } from "../hooks/useOutsideClick";
-import { updateColumnNameAction } from "../redux/board/boardSlice";
+import { useOutsideClick } from '../hooks/useOutsideClick';
+import { updateColumnNameAction } from '../redux/board/boardSlice';
 
-import deleteButton from "../assets/images/delete.svg";
-import columnStyles from "../assets/css/column.module.css";
+import columnStyles from '../assets/css/column.module.css';
+import { toast } from 'react-toastify';
 
 interface IAppProps {
-  id: number;
-  title: string;
-  cardsLength: number;
+	id: number;
+	title: string;
+	cardsLength: number;
 }
 
 const ColumnHeader: FC<IAppProps> = (props) => {
-  const wrapperRef = useRef(null);
-  const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-  useOutsideClick(wrapperRef, setVisible);
+	const wrapperRef = useRef(null);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const [visible, setVisible] = useState(false);
+	const inputRef = useRef<HTMLInputElement>(null);
+	useOutsideClick(wrapperRef, setVisible);
 
-  const changeColumnName = (e: any) => {
-    console.log("change name", e.target.id);
-    console.log(inputRef.current?.value);
-    dispatch(
-      updateColumnNameAction({
-        id: +e.target.id,
-        title: inputRef.current?.value,
-      }),
-    );
-  };
-  const { id, title, cardsLength } = props;
-  return (
-    <div className={columnStyles.header} ref={wrapperRef}>
-      {!visible && (
-        <>
-          <div
-            onClick={() => {
-              setVisible(true);
-            }}
-            className={columnStyles.columnName}>
-            <h3>{title}</h3>
-          </div>
-          <div className={columnStyles.cardsCount}>{cardsLength} cards</div>
-          <div className={columnStyles.deleteColumn}>
-            <img src={deleteButton} alt="delete" title="delete column" />
-          </div>
-        </>
-      )}
-      {visible && (
-        <>
-          <Input
-            autoFocus={true}
-            inputRef={inputRef}
-            defaultValue={title}
-            className={columnStyles.headerInput}
-            classContainer={columnStyles.headerInputWrap}
-          />
-          <Buttons
-            setVisible={setVisible}
-            getValue={changeColumnName}
-            id={id}
-          />
-        </>
-      )}
-    </div>
-  );
+	const changeColumnName = (e: any) => {
+		if (inputRef.current?.value === '') {
+			toast.error('Please fill in this field');
+			setVisible(true);
+			inputRef.current.focus();
+			return;
+		}
+		dispatch(
+			updateColumnNameAction({
+				id: +e.target.id,
+				title: inputRef.current?.value,
+				navigate: navigate,
+			})
+		);
+	};
+	const { id, title, cardsLength } = props;
+	return (
+		<div className={columnStyles.header} ref={wrapperRef}>
+			{!visible && (
+				<>
+					<div
+						onClick={() => {
+							setVisible(true);
+						}}
+						className={columnStyles.columnName}
+					>
+						<h3>{title}</h3>
+					</div>
+					<div className={columnStyles.cardsCount}>{cardsLength} cards</div>
+				</>
+			)}
+			{visible && (
+				<>
+					<Input
+						autoFocus={true}
+						inputRef={inputRef}
+						defaultValue={title}
+						className={columnStyles.headerInput}
+						classContainer={columnStyles.headerInputWrap}
+					/>
+					<Buttons setVisible={setVisible} getValue={changeColumnName} id={id} />
+				</>
+			)}
+		</div>
+	);
 };
 
 export default ColumnHeader;
