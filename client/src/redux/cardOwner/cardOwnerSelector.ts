@@ -3,6 +3,6 @@ import { RootState } from '../store';
 
 const selectSelf = (state: RootState) => state;
 
-const dataSelector = createSelector(selectSelf, (state) => state.board.column);
+const dataOwnerSelector = createSelector(selectSelf, (state) => state.owner.owner);
 
-export { dataSelector };
+export { dataOwnerSelector };
