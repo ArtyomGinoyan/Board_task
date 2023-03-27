@@ -1,7 +1,7 @@
 import { Card } from '../types/cardTypes';
 
 const addCardService = async (form: Card): Promise<Response> => {
-	const response = await fetch(`http://localhost:3303/card/create`, {
+	const response = await fetch(`${process.env.SERVER_HOST}/card/create`, {
 		method: 'POST',
 		credentials: 'include',
 		headers: {

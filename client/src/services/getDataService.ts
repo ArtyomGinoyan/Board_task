@@ -1,5 +1,5 @@
 const getDataService = async (): Promise<Response> => {
-	const response = await fetch(`http://localhost:3303/board/data`, {
+	const response = await fetch(`${process.env.SERVER_HOST}/board/data`, {
 		method: 'GET',
 		credentials: 'include',
 		headers: {

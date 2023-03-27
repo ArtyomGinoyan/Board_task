@@ -1,5 +1,5 @@
 const getOwnerDataService = async (id: number): Promise<Response> => {
-	const response = await fetch(`http://localhost:3303/card/owner/${id}`, {
+	const response = await fetch(`${process.env.SERVER_HOST}/card/owner/${id}`, {
 		method: 'GET',
 		credentials: 'include',
 		headers: {
