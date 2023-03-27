@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -19,17 +19,20 @@ const Register: FC = () => {
 		email: '',
 		password: '',
 	});
-
+	const checkRef = useRef<HTMLInputElement>(null);
 	const submit = async () => {
-		const response = await signUp(state);
-		const message = await response.json();
+		if (checkRef.current) {
+			console.log(checkRef.current.checked);
+			const response = await signUp({ ...state, admin: checkRef.current?.checked });
+			const message = await response.json();
 
-		if (response.status === 201 && response.ok) {
-			navigate('/login');
-			toast.success(message);
-			return;
+			if (response.status === 201 && response.ok) {
+				navigate('/login');
+				toast.success(message);
+				return;
+			}
+			toast.error(message.message);
 		}
-		toast.error(message.message);
 	};
 	const handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		setState({ ...state, [e.target.name]: e.target.value } as Pick<authState, keyof authState>);
@@ -54,6 +57,10 @@ const Register: FC = () => {
 				className={authStyles.button}
 				classContainer={authStyles.buttonContainer}
 			/>
+			<div className={authStyles.checkbox}>
+				<input type="checkbox" name="Admin" id="Admin" ref={checkRef} />
+				<label htmlFor="Admin">Admin</label>
+			</div>
 			<More to="/login" auth="Log in" about="Already have an account?" />
 		</motion.div>
 	);

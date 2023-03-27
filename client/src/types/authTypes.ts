@@ -4,6 +4,7 @@ export interface authState {
 	name?: string;
 	email: string;
 	password?: string;
+  admin?: boolean;
 }
 
 export interface IUser extends authState {
