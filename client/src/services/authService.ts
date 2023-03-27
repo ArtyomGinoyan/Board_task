@@ -1,7 +1,7 @@
 import { authState } from '../types/authTypes';
 
 const signIn = async (form: authState): Promise<Response> => {
-	const response = await fetch(`${process.env.SERVER_HOST}/auth/login`, {
+	const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/auth/login`, {
 		method: 'POST',
 		credentials: 'include',
 		headers: {
@@ -15,7 +15,7 @@ const signIn = async (form: authState): Promise<Response> => {
 };
 
 const logout = async (id: number) => {
-	await fetch(`${process.env.SERVER_HOST}/auth/logout/${id}`, {
+	await fetch(`${process.env.REACT_APP_SERVER_HOST}/auth/logout/${id}`, {
 		method: 'GET',
 		credentials: 'include',
 		headers: {
