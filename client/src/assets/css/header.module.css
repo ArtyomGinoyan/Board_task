@@ -1,16 +1,69 @@
 .container {
-  width: 95%;
-  height: 100px;
-  display: flex;
-  background-color: #f4f5f7;
+	width: 95%;
+	height: 50px;
+	display: flex;
+	/* background-color: #f4f5f7; */
+	/* background-color: #2f497d; */
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+	border-bottom: 2px solid #f4f5f7;
+}
+.headerContent {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.headerLogo {
+	color: #2f497d;
 }
 .inputContainer {
-  min-width: 15%;
-  height: 40px;
-  font-size: 18px;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-self: center;
-  padding: 5px;
+	min-width: 250px;
+	max-width: 30%;
+	height: 40px;
+	font-size: 18px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-self: flex-start;
+	padding: 5px 0;
+}
+.userSide {
+	cursor: pointer;
+	position: relative;
+}
+.userIcon {
+	transition: all 0.2s ease-out;
+}
+.userIcon:hover {
+	transform: scale(1.1);
+}
+.userInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 150px;
+	height: 80px;
+	background-color: white;
+	border-radius: 3px;
+	box-shadow: 0 0 0 1px rgba(9, 30, 66, 0.08), 0 2px 1px rgba(9, 30, 66, 0.08),
+		0 0 20px -6px rgba(9, 30, 66, 0.31);
+	z-index: 6666;
+	right: 0px;
+	top: 40px;
+}
+.logout {
+	width: 100%;
+	height: 49%;
+	transition: all 0.2s ease-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logout:hover {
+	background-color: #f4f5f7;
 }

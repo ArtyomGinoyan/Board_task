@@ -1,11 +1,167 @@
 div.container {
-  display: flex;
-  position: absolute;
-  /* top: 30vh;
-  left: 30vw; */
-  width: 500px;
-  height: 550px;
-  background-color: #2f497d;
-  border-radius: 6px;
-  z-index: 88888888888;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background-color: #2f497d;
+	background-color: white;
+	border-radius: 3px;
+	box-shadow: 0 0 0 1px rgba(9, 30, 66, 0.08), 0 2px 1px rgba(9, 30, 66, 0.08),
+		0 0 20px -6px rgba(9, 30, 66, 0.31);
+	z-index: 8888;
+}
+.wrapper {
+	width: 90%;
+	height: 90%;
+	border: 1px solid #dfe1e6;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+}
+.closeWrap {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.imageContainer {
+	width: 50px;
+	height: 30px;
+	border-radius: 3px;
+}
+.imageContainer > img {
+	width: 29px;
+	height: 29px;
+	cursor: pointer;
+}
+.imageContainer > img:hover {
+	background-color: #f4f5f7;
+}
+.formWrap {
+	width: 100%;
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	justify-content: center;
+	align-items: center;
+}
+.buttonContainer {
+	width: 100%;
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.buttonWrap {
+	width: 300px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+}
+.formInput {
+	width: 300px;
+	height: 40px;
+	border: none;
+	outline: none;
+	background-color: white;
+	padding: 0px 8px;
+	font-size: 16px;
+	border-radius: 3px;
+}
+.formInputWrap {
+	border: 1px solid #dfe1e6;
+	outline: none;
+	width: 300px;
+	height: 43px;
+	background-color: white;
+	border-radius: 3px;
+	display: flex;
+}
+.cardInfo {
+	display: flex;
+	width: 300px;
+	justify-content: space-between;
+}
+.cardInfo > h2 {
+	align-self: center;
+	width: 100%;
+}
+.formNameWrap,
+.formContentWrap {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 300px;
+}
+.formNameWrap > label {
+	align-self: flex-start;
+	cursor: pointer;
+}
+.formContentWrap > label {
+	align-self: flex-start;
+	cursor: pointer;
+}
+textarea {
+	outline: none;
+	border: 1px solid #dfe1e6;
+	border-radius: 3px;
+	padding: 10px 8px;
+	resize: none;
+}
+.button {
+	composes: button from './authStyles.module.css';
+}
+
+.delete {
+	composes: button from './authStyles.module.css';
+	background-color: red;
+	width: 80%;
+	box-shadow: 0 10px 30px 0 rgba(245, 53, 53, 0.5);
+	-moz-box-shadow: 0 10px 30px 0 rgba(245, 53, 53, 0.5);
+	-webkit-box-shadow: 0 10px 30px 0 rgba(245, 53, 53, 0.5);
+	-o-box-shadow: 0 10px 30px 0 rgba(245, 53, 53, 0.5);
+	-ms-box-shadow: 0 10px 30px 0 rgba(245, 53, 53, 0.5);
+}
+.cancel {
+	composes: button from './authStyles.module.css';
+	width: 80%;
+}
+.delete:hover {
+	background-color: rgb(218, 104, 104);
+	box-shadow: 0 10px 30px 0 rgb(218, 104, 104);
+	-moz-box-shadow: 0 10px 30px 0 rgb(218, 104, 104);
+	-webkit-box-shadow: 0 10px 30px 0 rgb(218, 104, 104);
+	-o-box-shadow: 0 10px 30px 0 rgb(218, 104, 104);
+	-ms-box-shadow: 0 10px 30px 0 rgb(218, 104, 104);
+}
+.dangerWrap {
+	width: 100%;
+	height: 35%;
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.dangerWrap > p {
+	font-size: 18px;
+}
+.dangerInfo {
+	width: 80%;
+	height: 45%;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.dangerWrap > div > span > img {
+	width: 25px;
+	height: 25px;
+}
+.dangerWrap > div {
+	display: flex;
+	gap: 15px;
 }

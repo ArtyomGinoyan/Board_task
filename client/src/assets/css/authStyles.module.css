@@ -1,0 +1,172 @@
+.login {
+	width: 400px;
+	height: 550px;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+}
+.register {
+	width: 400px;
+	height: 550px;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+}
+.inputWrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+.focus-input {
+	position: absolute;
+	display: block;
+	width: 390px;
+	height: 100%;
+	top: 0;
+	left: 5px;
+	pointer-events: none;
+	border-bottom: 2px solid #999;
+	display: flex;
+}
+.focus-input::before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 3px;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.5s;
+	background: #063057;
+}
+.focus-input::after {
+	font-size: 18px;
+	color: #999;
+	line-height: 1.2;
+	content: attr(data-placeholder);
+	display: flex;
+	width: 100%;
+	position: absolute;
+	top: 15px;
+	left: 0;
+	padding-left: 5px;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.5s;
+}
+input:focus ~ .focus-input::after {
+	top: -20px;
+	font-size: 15px;
+}
+input:focus + .focus-input::before {
+	width: 100%;
+}
+input:valid ~ .focus-input::after {
+	top: -20px;
+	font-size: 15px;
+}
+input:valid + .focus-input::before {
+	width: 100%;
+}
+input ~ .focus-input::after {
+	top: 20px;
+	font-size: 15px;
+}
+input {
+	width: 370px;
+	font-size: 18px;
+	padding: 15px 10px;
+	border: none;
+	outline: none;
+}
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+input:-webkit-autofill ~ .focus-input::after {
+	top: -20px;
+	font-size: 15px;
+}
+input:-webkit-autofill ~ .focus-input::before {
+	width: 100%;
+}
+.buttonContainer {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	align-items: center;
+}
+button {
+	outline: none !important;
+	border: none;
+	background: 0 0;
+}
+.button {
+	font-size: 16px;
+	color: #fff;
+	line-height: 1.2;
+	text-transform: uppercase;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	width: 100%;
+	height: 50px;
+	background-color: #063057;
+	border-radius: 3px;
+	box-shadow: 0 10px 30px 0 rgba(56, 27, 122, 0.5);
+	-moz-box-shadow: 0 10px 30px 0 rgba(56, 27, 122, 0.5);
+	-webkit-box-shadow: 0 10px 30px 0 rgb(56 27 122 / 50%);
+	-o-box-shadow: 0 10px 30px 0 rgba(56, 27, 122, 0.5);
+	-ms-box-shadow: 0 10px 30px 0 rgba(56, 27, 122, 0.5);
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+}
+.button:hover {
+	background-color: rgb(128, 127, 127);
+	box-shadow: 0 10px 30px 0 rgb(128 127 127 / 50%);
+	-moz-box-shadow: 0 10px 30px 0 rgb(128, 127, 127);
+	-webkit-box-shadow: 0 10px 30px 0 rgb(128 127 127 / 50%);
+	-o-box-shadow: 0 10px 30px 0 rgb(128, 127, 127);
+	-ms-box-shadow: 0 10px 30px 0 rgb(128, 127, 127);
+	cursor: pointer;
+}
+.names {
+	height: 80px;
+	text-align: center;
+}
+.to_auth {
+	text-decoration: none;
+	color: #063057;
+}
+.more {
+	height: 80px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+	font-size: 15px;
+	color: #999;
+}
+@media (min-width: 300px) and (max-width: 480px) {
+	.login,
+	.register {
+		width: 320px;
+	}
+	.focus-input {
+		width: 310px;
+	}
+	input {
+		width: 290px;
+	}
+}

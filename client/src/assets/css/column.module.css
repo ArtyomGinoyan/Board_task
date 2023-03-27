@@ -1,153 +1,161 @@
 .container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-self: auto; */
-  /* flex: 1 1 auto; */
-  max-width: 282px;
-  min-width: 282px;
-  background-color: #f4f5f7;
-  border-radius: 6px;
-  /* min-height: 75vh; */
-  /* height: auto; */
+	max-width: 282px;
+	min-width: 282px;
+	background-color: #f4f5f7;
+	border-radius: 6px;
 }
 .wraper {
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  /* align-self: auto; */
-  /* contain: style; */
-  /* flex: 1 1 auto; */
-  min-width: 282px;
-  /* margin-left: 6px; */
-  /* margin-right: 6px; */
-  max-width: 282px;
-  box-shadow: initial;
-  background-color: #f4f5f7;
-  position: relative;
-  gap: 10px;
-  /* height: auto; */
-  /* z-index: 555; */
-  min-height: 100%;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	min-width: 282px;
+	max-width: 282px;
+	box-shadow: initial;
+	background-color: #f4f5f7;
+	position: relative;
+	gap: 5px;
+	min-height: 100%;
+	padding-bottom: 5px;
 }
 .header {
-  display: flex;
-  height: 40px;
-  /* width: 100%; */
-  gap: 5px;
-  padding: 5px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  background-color: #f4f5f7;
-  justify-content: space-between;
-  z-index: 12;
+	display: flex;
+	height: 50px;
+	gap: 5px;
+	padding: 0 5px;
+	position: sticky;
+	top: 0;
+	left: 0;
+	background-color: #f4f5f7;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 12;
+	border-bottom: 2px solid rgb(216, 215, 215);
 }
-
 .headerInputWrap {
-  border: 2px solid blue;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  border-radius: 6px;
-  display: flex;
+	border: 2px solid #2f497d;
+	outline: none;
+	width: 100%;
+	height: 40px;
+	background-color: white;
+	border-radius: 3px;
+	display: flex;
 }
 .headerInput {
-  width: 75%;
-  height: 100%;
-  border: none;
-  outline: none;
-  background-color: white;
-  padding: 0px 8px;
-  font-size: 16px;
-  border-radius: 6px;
+	width: 75%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background-color: white;
+	padding: 0px 8px;
+	font-size: 16px;
+	border-radius: 3px;
 }
 .columnName,
 .cardsCount {
-  height: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #a2a8b1;
+	height: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #a2a8b1;
+	color: #5e6c84;
 }
 .columnName {
-  cursor: pointer;
+	cursor: pointer;
 }
 .deleteColumn {
-  width: 30px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-end;
-  justify-self: flex-end;
-  cursor: pointer;
+	width: 30px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: flex-end;
+	justify-self: flex-end;
+	cursor: pointer;
 }
 .cancel {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  right: 10px;
-  top: 15px;
-  cursor: pointer;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	cursor: pointer;
 }
 .checked {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  right: 35px;
-  top: 15px;
-  cursor: pointer;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 35px;
+	top: 12px;
+	cursor: pointer;
 }
 .cancel > img {
-  width: 100%;
-  height: 75%;
+	width: 100%;
+	height: 75%;
 }
 .checked > img {
-  width: 100%;
-  height: 60%;
+	width: 100%;
+	height: 60%;
 }
 .deleteColumn > img {
-  width: 100%;
-  height: 50%;
+	width: 80%;
+	height: 40%;
 }
 .createContainer {
-  width: 96%;
-  height: 40px;
-  font-size: 18px;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-self: center;
-  padding: 5px;
+	width: 96%;
+	height: 50px;
+	font-size: 18px;
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
 }
-
 .createContainer:hover > .createWrap {
-    display: flex;
-    background-color: #9a9da0;
-    border-radius: 6px;
+	display: flex;
+	background-color: #626d79;
+	background-color: rgb(216, 215, 215);
+	background-color: #dfe1e6;
+	border-radius: 3px;
+	width: 100%;
+	height: 100%;
 }
 .createWrap {
-  height: 100%;
-  cursor: pointer;
-  width: 95%;
-  gap: 5px;
-  display: none;
-  position: relative;
-  padding: 5px;
+	height: 100%;
+	cursor: pointer;
+	width: 95%;
+	gap: 5px;
+	display: none;
+	position: relative;
+	padding: 5px;
 }
 .createWrap > h3 {
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #343638;
-  cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #343638;
+	cursor: pointer;
 }
 .createWrap > div {
-  display: flex;
-  font-size: 27px;
-  color: #343638;
-  text-align: center;
+	display: flex;
+	font-size: 27px;
+	color: #343638;
+	text-align: center;
+}
+.inputContaier {
+	width: 95%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+}
+.inputWrap {
+	width: 95%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.inputWrap > label {
+	align-self: flex-end;
+	font-size: 22px;
 }
