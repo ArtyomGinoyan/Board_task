@@ -1,7 +1,7 @@
 import { IUser } from '../types/authTypes';
 
 const updateProfileService = async (form: IUser): Promise<Response> => {
-	const response = await fetch(`${process.env.SERVER_HOST}/profile/update/${form.id}`, {
+	const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/profile/update/${form.id}`, {
 		method: 'PUT',
 		credentials: 'include',
 		headers: {

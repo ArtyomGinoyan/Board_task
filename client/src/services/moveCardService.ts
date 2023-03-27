@@ -1,7 +1,7 @@
 import { moveCardForService } from '../types/cardTypes';
 
 const moveCardService = async (form: moveCardForService): Promise<Response> => {
-	const response = await fetch(`${process.env.SERVER_HOST}/card/moved`, {
+	const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/card/moved`, {
 		method: 'PUT',
 		credentials: 'include',
 		headers: {

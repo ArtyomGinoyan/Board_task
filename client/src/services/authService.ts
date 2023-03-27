@@ -25,7 +25,7 @@ const logout = async (id: number) => {
 };
 
 const signUp = async (form: authState): Promise<Response> => {
-	const response = await fetch(`${process.env.SERVER_HOST}/auth/signup`, {
+	const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/auth/signup`, {
 		method: 'POST',
 		credentials: 'include',
 		headers: {

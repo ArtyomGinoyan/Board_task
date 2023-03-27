@@ -1,5 +1,5 @@
 const addColumnService = async (form: { title: string }): Promise<Response> => {
-	const response = await fetch(`${process.env.SERVER_HOST}/column/create`, {
+	const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/column/create`, {
 		method: 'POST',
 		credentials: 'include',
 		headers: {

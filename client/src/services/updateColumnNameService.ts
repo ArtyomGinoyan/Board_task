@@ -1,5 +1,5 @@
 const updateColumnNameService = async (form: { title: string; id?: number }): Promise<Response> => {
-	const response = await fetch(`${process.env.SERVER_HOST}/column/update/${form.id}`, {
+	const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/column/update/${form.id}`, {
 		method: 'PUT',
 		credentials: 'include',
 		headers: {
