@@ -1,60 +1,61 @@
 {
-  "name": "board",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@hello-pangea/dnd": "^16.2.0",
-    "@reduxjs/toolkit": "^1.9.3",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^17.0.45",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "react": "^18.2.0",
-    "react-beautiful-dnd": "^13.1.1",
-    "react-dom": "^18.2.0",
-    "react-redux": "^8.0.5",
-    "react-router-dom": "^6.9.0",
-    "react-scripts": "5.0.1",
-    "redux-saga": "^1.2.3",
-    "typescript": "^4.9.5",
-    "uuid": "^9.0.0",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "devDependencies": {
-    "@types/react-beautiful-dnd": "^13.1.4",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/react-toastify": "^4.1.0",
-    "@types/uuid": "^9.0.1",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "board",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@reduxjs/toolkit": "^1.9.3",
+		"@types/node": "^17.0.45",
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
+		"framer-motion": "^10.9.1",
+		"react": "^18.2.0",
+		"react-avatar": "^5.0.3",
+		"react-beautiful-dnd": "^13.1.1",
+		"react-dom": "^18.2.0",
+		"react-redux": "^8.0.5",
+		"react-router-dom": "^6.9.0",
+		"react-scripts": "5.0.1",
+		"react-toastify": "^9.1.2",
+		"redux-saga": "^1.2.3",
+		"typescript": "^4.9.5",
+		"uuid": "^9.0.0",
+		"web-vitals": "^2.1.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"pretty": "prettier \"./src/**/*.+(js|jsx|css|less|scss|ts|tsx|md)\" --write"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"devDependencies": {
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^14.4.3",
+		"@types/jest": "^27.5.2",
+		"@types/react-beautiful-dnd": "^13.1.4",
+		"@types/react-router-dom": "^5.3.3",
+		"@types/react-toastify": "^4.1.0",
+		"@types/uuid": "^9.0.1",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-config-react-app": "^7.0.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"prettier": "^2.8.4"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
