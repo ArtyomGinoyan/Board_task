@@ -65,7 +65,7 @@ export function* auth(data: AuthData) {
 }
 export function* checkAuthorizedStatus(data: CheckStatus) {
 	if (data.response !== null && !data.response.ok) {
-		if (data.response.statusText === 'Unauthorized') {
+		if (data.response.status === 401) {
 			toast.error('Sorry,You are Unauthorized');
 			yield put(logoutAction(data.navigate));
 			throw new Error(data.response.statusText);
