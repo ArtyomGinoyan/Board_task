@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 
@@ -13,6 +13,9 @@ import { authState } from '../../types/authTypes';
 import { updateCardAction } from '../../redux/board/boardSlice';
 
 import popupStyles from '../../assets/css/popup.module.css';
+import Attachments from '../Attachments';
+import Buttons from '../Buttons/Buttons';
+import { getFilesAction } from '../../redux/attachFiles/attachFilesSlice';
 
 export interface CardPopupProps {
 	cardData: FullCardData | null;
@@ -26,6 +29,11 @@ const CardPopup: FC<CardPopupProps> = (props) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 	const { cardData, setIsOpen, owner } = props;
+	useEffect(() => {
+		// console.log(props.cardData?.id);
+		
+		// dispatch(getFilesAction(props.cardData?.id));
+	},[])
 	const updateCardData = () => {
 		dispatch(
 			updateCardAction({
@@ -65,17 +73,18 @@ const CardPopup: FC<CardPopupProps> = (props) => {
 					defaultValue={cardData?.content}
 					classContainer={popupStyles.formContentWrap}
 				/>
-			</div>
-			<div className={popupStyles.buttonContainer}>
-				<Button
-					onClick={() => {
-						updateCardData();
-						setIsOpen(false);
-					}}
-					buttonName="update"
-					className={popupStyles.button}
-					classContainer={popupStyles.buttonWrap}
-				/>
+				<div className={popupStyles.buttonContainer}>
+					<Button
+						onClick={() => {
+							updateCardData();
+							setIsOpen(false);
+						}}
+						buttonName="update"
+						className={popupStyles.button}
+						classContainer={popupStyles.buttonWrap}
+					/>
+				</div>
+				<Attachments cardData={cardData} />
 			</div>
 		</>
 	);

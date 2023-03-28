@@ -8,7 +8,7 @@ import columnStyles from '../../assets/css/column.module.css';
 export interface IAppProps {
 	setVisible?: React.Dispatch<React.SetStateAction<boolean>>;
 	getValue?: (e: any) => void;
-	clearValue?: () => void;
+	clearValue?: (e:any) => void;
 	id?: number;
 }
 
@@ -17,9 +17,9 @@ const Buttons: FC<IAppProps> = (props) => {
 	return (
 		<>
 			<div
-				onClick={() => {
+				onClick={(e) => {
 					if (setVisible) setVisible(false);
-					if (clearValue) clearValue();
+					if (clearValue) clearValue(e);
 				}}
 				className={columnStyles.cancel}
 			>
