@@ -12,7 +12,6 @@ import { userSelector } from '../redux/auth/authSelector';
 import { addCardAction } from '../redux/board/boardSlice';
 
 import columnStyles from '../assets/css/column.module.css';
-import { motion } from 'framer-motion';
 
 export interface IAppProps {
 	id: number;
@@ -45,22 +44,9 @@ const CreateCard: FC<IAppProps> = (props) => {
 			})
 		);
 	};
-	const handleHover = () => {
-		setVisible(false);
-	};
 
 	return (
-		<motion.div
-			onMouseEnter={handleHover}
-			// onMouseLeave={handleHoverEnd}
-			// whileHover={{ backgroundColor: '#f4f5f7' }}
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 1, type: 'easeIn' }}
-			className={columnStyles.createContainer}
-			ref={wrapperRef}
-		>
+		<div className={columnStyles.createContainer} ref={wrapperRef}>
 			{!visible && (
 				<>
 					<div
@@ -85,7 +71,7 @@ const CreateCard: FC<IAppProps> = (props) => {
 					<Buttons setVisible={setVisible} getValue={createNewCard} id={props.id} />
 				</>
 			)}
-		</motion.div>
+		</div>
 	);
 };
 export default CreateCard;
