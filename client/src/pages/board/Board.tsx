@@ -60,13 +60,19 @@ const Board: FC = () => {
 				{!data.length ? (
 					<EmptyData />
 				) : (
-					<div className={boardStyles.wrap}>
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 1, type: 'easeIn' }}
+						className={boardStyles.wrap}
+					>
 						<DragDropContext onDragEnd={(results) => onDragEnd(results)}>
 							{data.map((el: FullBoardData) => {
 								return <Column el={el} key={el.id + el.title} openModal={openModal} />;
 							})}
 						</DragDropContext>
-					</div>
+					</motion.div>
 				)}
 			</motion.div>
 		</>

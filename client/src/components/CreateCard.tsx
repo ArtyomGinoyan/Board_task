@@ -46,14 +46,14 @@ const CreateCard: FC<IAppProps> = (props) => {
 		);
 	};
 	const handleHover = () => {
-		setVisible(true);
+		setVisible(false);
 	};
 
 	return (
 		<motion.div
 			onMouseEnter={handleHover}
 			// onMouseLeave={handleHoverEnd}
-			whileHover={{ backgroundColor: '#343638' }}
+			whileHover={{ backgroundColor: '#f4f5f7' }}
 			className={columnStyles.createContainer}
 			ref={wrapperRef}
 		>
