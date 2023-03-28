@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { call, put } from 'redux-saga/effects';
 import { NavigateFunction } from 'react-router';
 
@@ -7,7 +8,6 @@ import { checkAuthorizedStatus } from '../auth/authSaga';
 import { authState } from '../../types/authTypes';
 
 import getOwnerDataService from '../../services/getOwnerDataService';
-import { toast } from 'react-toastify';
 
 export interface ownerData {
 	type: string;
@@ -26,7 +26,6 @@ export function* handleOwnerData(data: ownerData) {
 			navigate: data.payload.navigate,
 		});
 		const ownerData: authState = yield response.json() as Promise<authState>;
-		toast.success('Get owner data success');
 		yield put(getOwnerSuccess(ownerData));
 	} catch (error) {
 		toast.error('Get owner data failed');

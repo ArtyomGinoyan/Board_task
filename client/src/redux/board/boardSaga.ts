@@ -6,6 +6,7 @@ import addCardService from '../../services/addCardService';
 import getDataService from '../../services/getDataService';
 import moveCardService from '../../services/moveCardService';
 import addColumnService from '../../services/addColumnService';
+import updateCardService from '../../services/updateCardService';
 import removeCardService from '../../services/removedCardService';
 import updateColumnNameService from '../../services/updateColumnNameService';
 
@@ -24,7 +25,6 @@ import {
 	updateCardSuccess,
 	updateColumnName,
 } from './boardSlice';
-import updateCardService from '../../services/updateCardService';
 
 export interface Data {
 	type: string;

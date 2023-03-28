@@ -2,14 +2,13 @@ import { toast } from 'react-toastify';
 import { call, put } from 'redux-saga/effects';
 import { NavigateFunction } from 'react-router';
 
-import { deleteFileSuccess, getFilesAction, getFilesSuccess, resetFilesData } from './attachFilesSlice';
 import { checkAuthorizedStatus } from '../auth/authSaga';
+import { getFilesAction, getFilesSuccess, resetFilesData } from './attachFilesSlice';
 
-import { authState } from '../../types/authTypes';
-
-import getFilesDataService from '../../services/getFilesDataService';
 import deleteFileService from '../../services/deleteFileService';
 import uploadFileService from '../../services/uploadFileService';
+import getFilesDataService from '../../services/getFilesDataService';
+import { Message } from '../../types/authTypes';
 
 export interface filesData {
 	type: string;
@@ -41,62 +40,53 @@ export interface upload {
 	};
 }
 
-export function* handleFilesData(data: filesData) {
+export function* handleGetFilesData(data: filesData) {
 	try {
-		console.log(data.payload);
-
 		const response: Response = yield call(getFilesDataService, data.payload.id);
 		yield checkAuthorizedStatus({
-			message: 'Files data get failed',
+			message: 'Attached files get failed',
 			response: response,
 			navigate: data.payload.navigate,
 		});
 		const filesData: FilesData[] = yield response.json() as Promise<FilesData[]>;
-		console.log(filesData);
 
-		toast.success('Get files data success');
 		yield put(getFilesSuccess(filesData));
 	} catch (error) {
-		toast.error('Get files data failed');
+		toast.error('Attached Files  get failed');
 	}
 }
 
 export function* handleDeleteFile(data: download) {
 	try {
-		console.log(data.payload);
-
 		yield call(deleteFileService, data.payload.file);
-		// yield checkAuthorizedStatus({
-		// 	message: 'Files data get failed',
-		// 	response: response,
-		// 	navigate: data.payload.navigate,
-		// });
+		yield checkAuthorizedStatus({
+			message: 'Attached file delete failed',
+			response: null,
+			navigate: data.payload.navigate,
+		});
 		yield put(getFilesAction({ id: data.payload.file.cardId, navigate: data.payload.navigate }));
-		// yield put(deleteFileSuccess(data.payload.file))
-		// const filesData: FilesData[] = yield response.json() as Promise<FilesData[]>;
-		toast.success('Delete file success');
-		// yield put(getFilesSuccess(filesData));
+		toast.success('Delete attacheed file success');
 	} catch (error) {
-		toast.error('Delete file  failed');
+		toast.error('Delete attached file failed');
 	}
 }
 
 export function* handleUploadFile(data: upload) {
 	try {
-		console.log(data.payload);
-
-		yield call(uploadFileService, { data: data.payload.file, id: data.payload.id });
-		// yield checkAuthorizedStatus({
-		// 	message: 'Files data get failed',
-		// 	response: response,
-		// 	navigate: data.payload.navigate,
-		// });
+		const response: Response = yield call(uploadFileService, {
+			data: data.payload.file,
+			id: data.payload.id,
+		});
+		const { message }: Message = yield response.json() as Promise<Message>;
+		yield checkAuthorizedStatus({
+			message: message,
+			response: response,
+			navigate: data.payload.navigate,
+		});
 		yield put(getFilesAction({ id: data.payload.id, navigate: data.payload.navigate }));
-
-		toast.success('Upload file success');
-		// yield put(getFilesSuccess(filesData));
-	} catch (error) {
-		toast.error('Upload file failed');
+		toast.success(message);
+	} catch (error: any) {
+		toast.error(error.message);
 	}
 }
 

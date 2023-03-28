@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga/effects';
 import {
 	handleDeleteFile,
-	handleFilesData,
+	handleGetFilesData,
 	handleResetFilesData,
 	handleUploadFile,
 } from './attachFiles/attachFilesSaga';
@@ -48,7 +48,7 @@ export default function* watchDataSaga() {
 	yield takeEvery(getOwnerAction.type, handleOwnerData);
 	yield takeEvery(resetOwnerDataAction.type, handleResetOwnerData);
 	//attach files data actions
-	yield takeEvery(getFilesAction.type, handleFilesData);
+	yield takeEvery(getFilesAction.type, handleGetFilesData);
 	yield takeEvery(resetFilesDataAction.type, handleResetFilesData);
 	//card
 	yield takeEvery(addCardAction.type, handleAddCard);

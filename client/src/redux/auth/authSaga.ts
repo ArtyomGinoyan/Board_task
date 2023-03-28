@@ -15,8 +15,8 @@ import {
 	updateProfileSuccess,
 	userReset,
 } from './authSlice';
-import { resetOwnerData } from '../cardOwner/cardOwnerSlice';
 import { resetData } from '../board/boardSlice';
+import { resetOwnerData } from '../cardOwner/cardOwnerSlice';
 
 export interface DataNavigate {
 	type: string;
@@ -24,7 +24,7 @@ export interface DataNavigate {
 }
 export interface CheckStatus {
 	message: string;
-	response: Response;
+	response: Response | null;
 	navigate: NavigateFunction;
 }
 
@@ -63,7 +63,7 @@ export function* auth(data: AuthData) {
 	}
 }
 export function* checkAuthorizedStatus(data: CheckStatus) {
-	if (!data.response.ok) {
+	if (data.response !== null && !data.response.ok) {
 		if (data.response.statusText === 'Unauthorized') {
 			toast.error('Sorry,You are Unauthorized');
 			yield put(logoutAction(data.navigate));
@@ -87,6 +87,5 @@ export function* updateProfile(data: UpdateData) {
 		yield put(updateProfileSuccess(user));
 	} catch (error: any) {
 		toast.error('Update profile failed');
-		console.log(error);
 	}
 }
