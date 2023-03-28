@@ -7,7 +7,12 @@ import Input from './Input';
 import Buttons from './Buttons/Buttons';
 
 import { dataFilesSelector } from '../redux/attachFiles/attachFIlesSelector';
-import { deleteFileAction, getFilesAction, uploadFileAction } from '../redux/attachFiles/attachFilesSlice';
+import {
+	deleteFileAction,
+	getFilesAction,
+	resetFilesData,
+	uploadFileAction,
+} from '../redux/attachFiles/attachFilesSlice';
 import { FullCardData } from '../types/cardTypes';
 
 import popupStyles from '../assets/css/popup.module.css';
@@ -25,6 +30,9 @@ const Attachments: FC<IAttachmentsProps> = (props) => {
 	const [file, setFile] = useState<File | undefined>(undefined);
 	useEffect(() => {
 		dispatch(getFilesAction({ id: props.cardData?.id, navigate }));
+		return () => {
+			dispatch(resetFilesData());
+		};
 	}, []);
 
 	const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,9 +73,13 @@ const Attachments: FC<IAttachmentsProps> = (props) => {
 			</form>
 			<div className={attachmentStyles.container}>
 				<div className={attachmentStyles.wrap}>
-					{files.map((el) => {
-						return <File el={el} deleteFile={deleteFile} />;
-					})}
+					{!files.length ? (
+						<h3>No files yet</h3>
+					) : (
+						files.map((el) => {
+							return <File el={el} deleteFile={deleteFile} />;
+						})
+					)}
 				</div>
 			</div>
 		</>
