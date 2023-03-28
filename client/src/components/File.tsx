@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { motion } from 'framer-motion';
 import { FilesData } from '../redux/attachFiles/attachFilesSaga';
 
 import deleteImage from '../assets/images/delete.svg';
@@ -13,7 +14,15 @@ export interface IFileProps {
 const File: FC<IFileProps> = (props) => {
 	const { el, deleteFile } = props;
 	return (
-		<div key={el.id} className={attachmentStyles.fileContainer} title={`${el.file_name}`}>
+		<motion.div
+			key={el.id}
+			exit={{ opacity: 0 }}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			title={`${el.file_name}`}
+			transition={{ duration: 1, type: 'easeIn' }}
+			className={attachmentStyles.fileContainer}
+		>
 			<div className={attachmentStyles.filename}>{el.file_name}</div>
 			<div className={attachmentStyles.actions}>
 				<a
@@ -35,7 +44,7 @@ const File: FC<IFileProps> = (props) => {
 					/>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 export default File;

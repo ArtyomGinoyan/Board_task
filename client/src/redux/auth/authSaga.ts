@@ -59,6 +59,7 @@ export function* auth(data: AuthData) {
 		yield localStorage.setItem('user', JSON.stringify(user));
 		yield put(loginSuccesed(user));
 	} catch (error: any) {
+		toast.error(error.message);
 		yield put(loginFailed(error.message));
 	}
 }
