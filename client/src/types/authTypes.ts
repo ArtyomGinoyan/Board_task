@@ -4,7 +4,7 @@ export interface authState {
 	name?: string;
 	email: string;
 	password?: string;
-  admin?: boolean;
+	admin?: boolean;
 }
 
 export interface IUser extends authState {
@@ -28,4 +28,8 @@ export interface UpdateData {
 export interface AuthData {
 	type: string;
 	payload: IUser | UpdateUser;
+}
+
+export interface Message {
+	message: string;
 }

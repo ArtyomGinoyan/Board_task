@@ -1,21 +1,19 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import Input from '../Input';
 import TextArea from '../TextArea';
 import Button from '../Buttons/Button';
+import Attachments from '../Attachments';
 import CloseButton from '../Buttons/CloseButton';
 
+import { authState } from '../../types/authTypes';
 import { FullCardData } from '../../types/cardTypes';
 
-import { authState } from '../../types/authTypes';
 import { updateCardAction } from '../../redux/board/boardSlice';
 
 import popupStyles from '../../assets/css/popup.module.css';
-import Attachments from '../Attachments';
-import Buttons from '../Buttons/Buttons';
-import { getFilesAction } from '../../redux/attachFiles/attachFilesSlice';
 
 export interface CardPopupProps {
 	cardData: FullCardData | null;
@@ -29,11 +27,7 @@ const CardPopup: FC<CardPopupProps> = (props) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 	const { cardData, setIsOpen, owner } = props;
-	useEffect(() => {
-		// console.log(props.cardData?.id);
-		
-		// dispatch(getFilesAction(props.cardData?.id));
-	},[])
+
 	const updateCardData = () => {
 		dispatch(
 			updateCardAction({

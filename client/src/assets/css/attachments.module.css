@@ -36,10 +36,10 @@
 }
 .filename {
 	padding: 10px;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 .download,
 .delete {
@@ -50,9 +50,8 @@
 	align-items: center;
 	border-radius: 3px;
 	transition: all 0.4s;
-    cursor: pointer;
+	cursor: pointer;
 }
-
 .download > img {
 	width: 20px;
 	height: 20px;

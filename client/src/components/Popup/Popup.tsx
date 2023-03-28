@@ -7,8 +7,8 @@ import CardPopup from './CardPopup';
 import DeletePopup from './DeletePopup';
 import UpdateProfile from './UpdateProfile';
 
-import { getOwnerAction, resetOwnerDataAction } from '../../redux/cardOwner/cardOwnerSlice';
 import { dataOwnerSelector } from '../../redux/cardOwner/cardOwnerSelector';
+import { getOwnerAction, resetOwnerDataAction } from '../../redux/cardOwner/cardOwnerSlice';
 
 import { FullCardData } from '../../types/cardTypes';
 
@@ -43,11 +43,11 @@ const Popup: FC<IAppProps> = (props) => {
 			className={popupStyles.container}
 			ref={props.wrapperRef}
 		>
-			<form className={popupStyles.wrapper}>
+			<div className={popupStyles.wrapper}>
 				{source === 'info' && <CardPopup cardData={cardData} setIsOpen={setIsOpen} owner={owner} />}
 				{source === 'delete' && <DeletePopup cardData={cardData} setIsOpen={setIsOpen} owner={owner} />}
 				{source === 'update' && <UpdateProfile setIsOpen={setIsOpen} />}
-			</form>
+			</div>
 		</motion.div>
 	);
 };
