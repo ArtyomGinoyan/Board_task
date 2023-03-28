@@ -3,7 +3,7 @@ const uploadFileService = async (file: { data: FormData; id: number }): Promise<
 		method: 'POST',
 		credentials: 'include',
 		headers: {
-			'Content-Type': 'multipart/form-data',
+			// 'Content-Type': 'multipart/form-data',
 			// 'Content-Type': 'application/json',
 		},
 		body: file.data,
