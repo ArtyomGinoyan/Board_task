@@ -53,7 +53,11 @@ const CreateCard: FC<IAppProps> = (props) => {
 		<motion.div
 			onMouseEnter={handleHover}
 			// onMouseLeave={handleHoverEnd}
-			whileHover={{ backgroundColor: '#f4f5f7' }}
+			// whileHover={{ backgroundColor: '#f4f5f7' }}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{ duration: 1, type: 'easeIn' }}
 			className={columnStyles.createContainer}
 			ref={wrapperRef}
 		>
