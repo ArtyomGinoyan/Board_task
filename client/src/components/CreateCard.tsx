@@ -53,7 +53,7 @@ const CreateCard: FC<IAppProps> = (props) => {
 					<motion.div
 						initial={{ display: 'none' }}
 						animate={{ display: 'flex' }}
-						whileHover={{ background: "#343638" }}
+						whileHover={{ backgroundColor: '#343638' }}
 						onClick={() => {
 							setVisible(true);
 						}}
