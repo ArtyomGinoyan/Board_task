@@ -178,3 +178,19 @@ textarea {
 	display: flex;
 	gap: 15px;
 }
+
+@media (min-width: 300px) and (max-width: 600px) {
+	div.container {
+		width: 100vw;
+		height: 100vh;
+	}
+	.wrapper {
+		height: 90%;
+		width: 100%;
+		border: none;
+	}
+	.dangerInfo {
+		gap: 40px;
+		justify-content: center;
+	}
+}
