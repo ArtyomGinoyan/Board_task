@@ -21,7 +21,6 @@ const CreateColumn: FC<CreateColumnProps> = (props) => {
 		if (inputRef.current) inputRef.current.value = '';
 	};
 	const addColumn = (e: any) => {
-		
 		if (inputRef.current?.value === '') {
 			toast.error('Please fill in this field');
 			inputRef.current.focus();

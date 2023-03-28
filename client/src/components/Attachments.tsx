@@ -46,7 +46,6 @@ const Attachments: FC<IAttachmentsProps> = (props) => {
 		if (file) {
 			const formData = new FormData();
 			formData.append('file', file);
-			console.log(file);
 			dispatch(uploadFileAction({ id: props.cardData?.id, navigate, file: formData }));
 		}
 	};

@@ -22,7 +22,6 @@ const Register: FC = () => {
 	const checkRef = useRef<HTMLInputElement>(null);
 	const submit = async () => {
 		if (checkRef.current) {
-			console.log(checkRef.current.checked);
 			const response = await signUp({ ...state, admin: checkRef.current?.checked });
 			const message = await response.json();
 

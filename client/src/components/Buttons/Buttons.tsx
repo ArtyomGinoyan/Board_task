@@ -8,7 +8,7 @@ import columnStyles from '../../assets/css/column.module.css';
 export interface IAppProps {
 	setVisible?: React.Dispatch<React.SetStateAction<boolean>>;
 	getValue?: (e: any) => void;
-	clearValue?: (e:any) => void;
+	clearValue?: (e: any) => void;
 	id?: number;
 }
 

@@ -2,10 +2,7 @@ const uploadFileService = async (file: { data: FormData; id: number }): Promise<
 	const response = await fetch(`${process.env.REACT_APP_SERVER_HOST}/upload/${file.id}`, {
 		method: 'POST',
 		credentials: 'include',
-		headers: {
-			// 'Content-Type': 'multipart/form-data',
-			// 'Content-Type': 'application/json',
-		},
+		headers: {},
 		body: file.data,
 	});
 	return response;

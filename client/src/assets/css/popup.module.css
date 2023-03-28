@@ -72,15 +72,15 @@ div.container {
 	font-size: 16px;
 	border-radius: 3px;
 }
-input[type=file].formInput {
+input[type='file'].formInput {
 	cursor: pointer;
 }
-input[type=button].formInput {
+input[type='button'].formInput {
 	font-size: 18px;
 	transition: all 0.4s;
 	cursor: pointer;
 }
-input[type=button].formInput:hover {
+input[type='button'].formInput:hover {
 	font-size: 18px;
 	background-color: rgb(128, 127, 127);
 }

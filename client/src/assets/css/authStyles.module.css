@@ -159,19 +159,19 @@ button {
 	color: #999;
 }
 .checkbox {
-    width: 300px;
-    height: 20px;
-    display: flex;
-    gap: 5px;
-    justify-content: flex-start;
-    align-items: center;
+	width: 300px;
+	height: 20px;
+	display: flex;
+	gap: 5px;
+	justify-content: flex-start;
+	align-items: center;
 }
 .checkbox > input {
-    width: 20px;
-    align-self: center;
+	width: 20px;
+	align-self: center;
 }
 .checkbox > label {
-    font-size: 18px;
+	font-size: 18px;
 }
 @media (min-width: 300px) and (max-width: 480px) {
 	.login,

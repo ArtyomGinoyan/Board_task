@@ -81,10 +81,10 @@
 	top: 13px;
 	cursor: pointer;
 	top: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	transition: all 0.4s;
 	border-radius: 3px;
 }
@@ -96,14 +96,15 @@
 	top: 12px;
 	cursor: pointer;
 	top: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	transition: all 0.4s;
 	border-radius: 3px;
 }
-.cancel:hover, .checked:hover {
+.cancel:hover,
+.checked:hover {
 	background-color: #f4f5f7;
 }
 .cancel > img {
