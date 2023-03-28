@@ -45,15 +45,21 @@ const CreateCard: FC<IAppProps> = (props) => {
 			})
 		);
 	};
+	const handleHover = () => {
+		setVisible(true);
+	};
 
 	return (
-		<div className={columnStyles.createContainer} ref={wrapperRef}>
+		<motion.div
+			onMouseEnter={handleHover}
+			// onMouseLeave={handleHoverEnd}
+			whileHover={{ backgroundColor: '#343638' }}
+			className={columnStyles.createContainer}
+			ref={wrapperRef}
+		>
 			{!visible && (
 				<>
-					<motion.div
-						initial={{ display: 'none' }}
-						animate={{ display: 'flex' }}
-						whileHover={{ backgroundColor: '#343638' }}
+					<div
 						onClick={() => {
 							setVisible(true);
 						}}
@@ -61,7 +67,7 @@ const CreateCard: FC<IAppProps> = (props) => {
 					>
 						<div>+</div>
 						<h3>Create Card</h3>
-					</motion.div>
+					</div>
 				</>
 			)}
 			{visible && (
@@ -75,7 +81,7 @@ const CreateCard: FC<IAppProps> = (props) => {
 					<Buttons setVisible={setVisible} getValue={createNewCard} id={props.id} />
 				</>
 			)}
-		</div>
+		</motion.div>
 	);
 };
 export default CreateCard;
